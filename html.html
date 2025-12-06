@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-shopping-basket"></i> Lista de Compras Inteligente</h1>
+            <p class="subtitle">Organize suas compras de forma prática e eficiente</p>
+        </header>
+        
+        <main>
+            <div class="input-section">
+                <div class="input-group">
+                    <input type="text" id="itemInput" placeholder="Digite um item para adicionar...">
+                    <button id="addButton" class="btn-primary">
+                        <i class="fas fa-plus-circle"></i> Adicionar
+                    </button>
+                </div>
+                
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="pending">Pendentes</button>
+                    <button class="filter-btn" data-filter="completed">Comprados</button>
+                </div>
+            </div>
+            
+            <div class="list-container">
+                <div class="list-header">
+                    <h2><i class="fas fa-list-ul"></i> Itens da Lista</h2>
+                    <div class="header-actions">
+                        <button id="clearAllButton" class="btn-secondary">
+                            <i class="fas fa-trash-alt"></i> Limpar Tudo
+                        </button>
+                        <button id="saveListButton" class="btn-success">
+                            <i class="fas fa-save"></i> Salvar
+                        </button>
+                    </div>
+                </div>
+                
+                <ul id="itemList">
+                    <!-- Itens serão carregados dinamicamente aqui -->
+                </ul>
+                
+                <div class="empty-state" id="emptyState">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>Lista de compras vazia</h3>
+                    <p>Comece adicionando itens acima!</p>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-icon total">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Total</h3>
+                        <p class="stat-number" id="totalCount">0</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon pending">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Pendentes</h3>
+                        <p class="stat-number" id="pendingCount">0</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon completed">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Comprados</h3>
+                        <p class="stat-number" id="completedCount">0</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p><i class="far fa-copyright"></i> 2025 Lista de Compras Inteligente | 
+               <span id="lastSaved">Último salvamento: Nunca</span></p>
+            <p class="footer-note"><i class="fas fa-info-circle"></i> Dica: Clique em um item para marcá-lo como comprado</p>
+        </footer>
+    </div>
+    
+    <!-- Modal para edição -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> Editar Item</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="editInput" placeholder="Digite o novo texto...">
+                <div class="modal-actions">
+                    <button id="cancelEdit" class="btn-secondary">Cancelar</button>
+                    <button id="saveEdit" class="btn-primary">Salvar Alterações</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
